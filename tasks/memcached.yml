@@ -9,4 +9,3 @@
 
 - name: config file
   template: src=memcached.conf.j2 dest=/etc/memcached.conf
-  sudo: true
