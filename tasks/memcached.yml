@@ -4,7 +4,6 @@
   with_items:
     - memcached
     - php5-memcached
-  sudo: true
   notify:
     - Restart apache
 
