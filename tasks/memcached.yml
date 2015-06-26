@@ -3,9 +3,6 @@
   apt: pkg={{ item }} state=installed
   with_items:
     - memcached
-    - php5-memcached
-  notify:
-    - Restart apache
 
 - name: config file
   template: src=memcached.conf.j2 dest=/etc/memcached.conf
