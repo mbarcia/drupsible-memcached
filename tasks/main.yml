@@ -1,5 +1,5 @@
 ---
-- name: Install Memcached package
+- name: Install Memcached service package
   package: 
     name: memcached
     state: latest
@@ -9,8 +9,14 @@
     src: memcached.conf.j2 
     dest: /etc/memcached.conf
 
-- name: Install PHP-Memcached extension
+- name: Is PHP-FPM installed?
+  stat:
+    path: '/etc/php5/fpm/php.ini'
+    register: php_fpm_ini 
+
+- name: Install PHP-Memcached if PHP-FPM is installed
   package: 
     name: php5-memcached
     state: latest
+  when: php_fpm_ini.stat.exists
   notify: 'Restart php5-fpm'

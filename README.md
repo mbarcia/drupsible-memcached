@@ -1,12 +1,13 @@
 drupsible-memcached
 ===================
 
-Install and configure Memcached service daemon and its PHP5 memcached extension.
+Install and configure Memcached service daemon. If PHP-FPM is present in the system, also install the PHP5 memcached extension.
 
 Requirements
 ------------
 
-This role requires PHP5 FPM (Fast Process Manager) to be present. 
+This role DOES NOT requires PHP5 FPM (Fast Process Manager) to be present. But if it is, it will install the PHP5 memcached extension.
+
 This role can be used indepedently and does NOT require Drupsible to run.
 
 Example Playbook
