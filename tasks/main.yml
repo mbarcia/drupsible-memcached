@@ -12,7 +12,7 @@
 - name: Is PHP-FPM installed?
   stat:
     path: '/etc/php5/fpm/php.ini'
-    register: php_fpm_ini 
+  register: php_fpm_ini 
 
 - name: Install PHP-Memcached if PHP-FPM is installed
   package: 
