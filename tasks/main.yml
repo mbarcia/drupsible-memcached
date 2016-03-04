@@ -1,2 +1,16 @@
 ---
-- include: memcached.yml
+- name: Install Memcached package
+  package: 
+    name: memcached
+    state: latest
+
+- name: Install Memcached service config file
+  template: 
+    src: memcached.conf.j2 
+    dest: /etc/memcached.conf
+
+- name: Install PHP-Memcached extension
+  package: 
+    name: php5-memcached
+    state: latest
+  notify: 'Restart php5-fpm'

@@ -2,16 +2,14 @@
 galaxy_info:
   author: "Mariano Barcia"
   license: 'GNU General Public License v3'
-  min_ansible_version: 1.4
+  min_ansible_version: 2.0
   platforms:
     - name: Ubuntu
-      versions:
-        - precise
-        - trusty
     - name: Debian
-      versions:
-        - squeeze
-        - wheezy
-  categories:
-    - web
+  galaxy_tags:
+  - memcached
+  - pecl
+  - php
+  - drupal
+  - drupsible
 dependencies: []

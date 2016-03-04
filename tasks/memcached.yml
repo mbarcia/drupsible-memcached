@@ -1,8 +1,0 @@
----
-- name: install packages
-  apt: pkg={{ item }} state=installed
-  with_items:
-    - memcached
-
-- name: config file
-  template: src=memcached.conf.j2 dest=/etc/memcached.conf
