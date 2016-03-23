@@ -15,7 +15,7 @@ Example Playbook
 
 ```
 - role: drupsible.memcached
-  when: app_env.memcached|bool
+  when: app_memcached_enabled|default(True)|bool
   become: yes
   tags: [ 'role::memcached' ]
 ```
