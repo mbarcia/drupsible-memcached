@@ -1,0 +1,4 @@
+---
+memcached_php_version_default: "{{ (ansible_distribution_release == 'xenial')|ternary('7.0', '5' ) }}"
+memcached_php_etc_base: "{{ (memcached_php_version == '7.0')|ternary('/etc/php/7.0', '/etc/php5' ) }}"
+memcached_php_package: "{{ (memcached_php_version == '7.0')|ternary('php-memcached', 'php5-memcached' ) }}"
