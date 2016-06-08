@@ -20,7 +20,7 @@ memcached_user: nobody
 memcached_listen_ip_address: '127.0.0.1'
 
 #
-# You may add additional configuration parameters, documented below: 
+# You may add additional configuration parameters, documented below:
 #
 
 # Be verbose
@@ -41,6 +41,3 @@ memcached_listen_ip_address: '127.0.0.1'
 # Maximize core file limit
 # -r
 memcached_additional_conf_params: ''
-
-# PHP version
-memcached_php_version: "{{ ansible_local.php.version|default(memcached_php_version_default) }}"
