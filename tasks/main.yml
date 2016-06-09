@@ -20,3 +20,5 @@
     state: latest
   when: php_fpm_ini.stat.exists
   notify: 'Restart php-fpm'
+
+- meta: flush_handlers
