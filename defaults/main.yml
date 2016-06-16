@@ -20,24 +20,24 @@ memcached_user: nobody
 memcached_listen_ip_address: '127.0.0.1'
 
 #
-# You may add additional configuration parameters, documented below: 
+# You may add additional configuration parameters, documented below:
 #
 
 # Be verbose
 # -v
- 
+
 # Be even more verbose (print client commands as well)
 # -vv
- 
+
 # Limit the number of simultaneous incoming connections. The daemon default is 1024
 # -c 1024
- 
+
 # Lock down all paged memory. Consult with the README and homepage before you do this
 # -k
- 
+
 # Return error when memory is exhausted (rather than removing items)
 # -M
- 
+
 # Maximize core file limit
 # -r
 memcached_additional_conf_params: ''
