@@ -3,6 +3,7 @@
   package:
     name: memcached
     state: latest
+  tags: [ provision ]
 
 - name: Install Memcached service config file
   template:
@@ -12,13 +13,15 @@
 - name: Is PHP-FPM installed?
   stat:
     path: '{{ memcached_php_etc_base }}/fpm/php.ini'
-  register: php_fpm_ini
+  register: memcached_php_fpm_ini_output
+  tags: [ provision ]
 
 - name: Install php memcached extension if PHP-FPM is present
   package:
     name: "{{ memcached_php_package }}"
     state: latest
-  when: php_fpm_ini.stat.exists
+  when: memcached_php_fpm_ini_output.stat.exists
   notify: 'Restart php-fpm'
+  tags: [ provision ]
 
 - meta: flush_handlers
