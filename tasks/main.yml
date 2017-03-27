@@ -3,6 +3,7 @@
   package:
     name: memcached
     state: latest
+    use: apt    
   tags: [ provision ]
 
 - name: Install Memcached service config file
@@ -20,6 +21,7 @@
   package:
     name: "{{ memcached_php_package }}"
     state: latest
+    use: apt
   when: memcached_php_fpm_ini_output.stat.exists
   notify: 'Restart php-fpm'
   tags: [ provision ]
