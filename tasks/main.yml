@@ -27,3 +27,23 @@
   tags: [ provision ]
 
 - meta: flush_handlers
+  when: not memcached_in_container|d(False)|bool
+
+- name: Test if using a phusion image
+  stat:
+    path: "/sbin/my_init"
+  register: memcached_my_init_output
+  when: memcached_in_container|d(False)|bool
+
+- name: Make sure /etc/service/memcached exists
+  file:
+    path: /etc/service/memcached
+    state: directory
+  when: memcached_in_container|d(False)|bool and memcached_my_init_output.stat.exists
+
+- name: Install memcached at boot
+  copy:
+    src: memcached-init.sh
+    dest: /etc/service/memcached/run
+    mode: "a+x"
+  when: memcached_in_container|d(False)|bool and memcached_my_init_output.stat.exists
